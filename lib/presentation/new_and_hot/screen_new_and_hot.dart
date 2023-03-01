@@ -131,22 +131,24 @@ class ComingSoonList extends StatelessWidget {
               if (movie.id == null) {
                 return const SizedBox();
               }
-              String month = '';
-              String date = '';
-              try {
-                final _date = DateTime.tryParse(movie.releaseDate!);
-                final formatedDate = DateFormat.yMMMMd('en_US').format(_date!);
-                month =
-                    formatedDate.split(' ').first.substring(0, 3).toUpperCase();
-                date = movie.releaseDate!.split(' ')[1];
-              } catch (_) {
-                month = '';
-                date = '';
-              }
+              // String month = '';
+              // String date = '';
+              // try {
+               final date = DateTime.tryParse(movie.releaseDate!);
+                final formatedDate = DateFormat.yMMMMd('en_US') .format(date!);
+                // month =
+                //     formatedDate.split(' ').first.substring(0, 3).toUpperCase();
+                // date = movie.releaseDate!.split(' ')[1];
+              // } catch (_) {
+              //   month = 'MAR';
+              //   date = '11';
+              // }
               return ComingSoonWidget(
                 id: movie.id.toString(),
-                month: month,
-                day: date,
+                // month: month,
+                // day: date,
+                month: formatedDate.split(' ').first.substring(0, 3).toUpperCase(),
+                day:movie.releaseDate!.split('-')[1],
                 posterPath: '$imageAppentUrl${movie.posterPath}',
                 movieName: movie.originalTitle ?? "NO Title",
                 description: movie.overview ?? "NO description",

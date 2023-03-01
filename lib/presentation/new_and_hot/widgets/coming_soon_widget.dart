@@ -33,9 +33,9 @@ class ComingSoonWidget extends StatelessWidget {
               children:  [
                 Text(
                   month,
-                  style:const TextStyle(fontSize: 20, color: kWhiteColor),
+                  style:const TextStyle(fontSize: 20, color: kWhiteColor,),
                 ),
-                Text(
+                Text(                
                   day,
                   style:const TextStyle(
                     fontSize: 30,
@@ -57,15 +57,19 @@ class ComingSoonWidget extends StatelessWidget {
                 Row(
                   // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                     Text(
-                      
-                     movieName,
-                     maxLines: 1,
-                     overflow: TextOverflow.ellipsis,
-                      style:
-                       const   TextStyle(fontSize: 15, fontWeight: FontWeight.bold,color: Colors.blue,),
-                    ),
-                    const Spacer(),
+                     Expanded(
+                     
+                         child: Text(
+                          
+                         movieName,
+                         maxLines: 1,
+                         overflow: TextOverflow.ellipsis,
+                          style:
+                           const   TextStyle(fontSize: 15, fontWeight: FontWeight.bold,color: Colors.blue,),
+                                           ),
+                       
+                     ),
+                    // const Spacer(),
                     Row(
                       children: const [
                         CustomButtonWidget(

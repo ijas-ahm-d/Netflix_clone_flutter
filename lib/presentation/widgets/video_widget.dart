@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:netflix_clone/core/colors.dart';
-import 'package:netflix_clone/core/constant.dart';
+
 
 class VideoWidget extends StatelessWidget {
   final String url;
