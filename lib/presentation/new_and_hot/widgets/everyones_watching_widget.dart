@@ -21,20 +21,22 @@ class EveryonesWatchingWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           kHeight,
-          const Text(
-            "friends",
-            style: TextStyle(
+           Text(
+           movieName,
+            style:const TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.bold,
             ),
           ),
           kHeight,
-          const Text(
-            "This hit sitcom followa the merry misadventures of sis 20-something pals as they navigate the pitfalls of the love in 1990's Manhattan",
-            style: TextStyle(color: kGreyColor, fontSize: 16),
+           Text(
+            description,
+            maxLines: 5,
+            overflow: TextOverflow.ellipsis,
+            style:const TextStyle(color: kGreyColor, fontSize: 16),
           ),
           kHeight50,
-          const VideoWidget(url: newAndHot2,),
+           VideoWidget(url: posterPath,),
           kHeight,
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
