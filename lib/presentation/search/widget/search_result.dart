@@ -4,8 +4,6 @@ import 'package:netflix_clone/application/search/search_bloc.dart';
 import 'package:netflix_clone/core/constant.dart';
 import 'package:netflix_clone/presentation/search/widget/title.dart';
 
-// const imageUrl =
-//     "https://www.themoviedb.org/t/p/w220_and_h330_face/m1b9toKYyCujHuLoXB5GSDunO9e.jpg";
 
 class SearchResultWidget extends StatelessWidget {
   const SearchResultWidget({super.key});
@@ -49,9 +47,9 @@ class MainCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final nuus = null;
-    return imageUrl == "$imageAppentUrl$nuus"
-        ? Center(
+    const num = null;
+    return imageUrl == "$imageAppentUrl$num"
+        ?const Center(
             child: Text("No Image Found"),
           )
         : Container(

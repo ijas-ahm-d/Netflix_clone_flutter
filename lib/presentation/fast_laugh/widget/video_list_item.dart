@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:netflix_clone/core/colors.dart';
 import 'package:netflix_clone/core/constant.dart';
@@ -85,15 +84,13 @@ class VideoListItem extends StatelessWidget {
                       valueListenable: likedVideosIdsNotifier,
                       builder: (BuildContext context, Set<int> newLikedIds,
                           Widget? _) {
-                        final _index = index;
-                        if (newLikedIds.contains(_index)) {
+                        final indexes = index;
+                        if (newLikedIds.contains(indexes)) {
                           return GestureDetector(
                             onTap: () {
-                              likedVideosIdsNotifier.value.remove(_index);
+                              likedVideosIdsNotifier.value.remove(indexes);
                               likedVideosIdsNotifier.notifyListeners();
-                              // BlocProvider.of<FastLaughBloc>(context).add(
-                              //   Unlikevideo(id: _index),
-                              // );
+                            
                             },
                             child: const VideoActionsWidget(
                               icon: Icons.favorite_outline,
@@ -103,11 +100,9 @@ class VideoListItem extends StatelessWidget {
                         }
                         return GestureDetector(
                           onTap: () {
-                            likedVideosIdsNotifier.value.add(_index);
+                            likedVideosIdsNotifier.value.add(indexes);
                             likedVideosIdsNotifier.notifyListeners();
-                            // BlocProvider.of<FastLaughBloc>(context).add(
-                            //   LikeVideo(id: _index),
-                            // );
+                            
                           },
                           child: const VideoActionsWidget(
                             icon: Icons.emoji_emotions,

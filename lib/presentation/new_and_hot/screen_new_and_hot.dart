@@ -6,10 +6,8 @@ import 'package:netflix_clone/core/colors.dart';
 import 'package:netflix_clone/core/constant.dart';
 import 'package:netflix_clone/presentation/new_and_hot/widgets/coming_soon_widget.dart';
 import 'package:netflix_clone/presentation/new_and_hot/widgets/everyones_watching_widget.dart';
-import 'package:netflix_clone/presentation/widgets/video_widget.dart';
 
 import '../../application/hot_and_new/hot_and_new_bloc.dart';
-import '../home/widgets/custom_button_widget.dart';
 
 class ScreenNewAndHot extends StatelessWidget {
   const ScreenNewAndHot({super.key});
@@ -74,32 +72,10 @@ class ScreenNewAndHot extends StatelessWidget {
           EveryoneWatchingList(
             key: Key("everyone_watching"),
           )
-          // _buildComingSoon(),
-
-          // _buildEveryonesWatching(),
         ]),
       ),
     );
   }
-
-  // Widget _buildComingSoon() {
-  //   return ListView.builder(
-  //     itemCount: 10,
-  //     itemBuilder: (context, index) {
-  //       return const ComingSoonWidget();
-  //     },
-  //   );
-  // }
-
-  // Widget _buildEveryonesWatching() {
-  //   return ListView.builder(
-  //     itemCount: 10,
-  //     itemBuilder: (context, index) {
-  //       // return const EveryonesWatchingWidget();
-  //       return const SizedBox();
-  //     },
-  //   );
-  // }
 }
 
 class ComingSoonList extends StatelessWidget {
@@ -178,9 +154,9 @@ class EveryoneWatchingList extends StatelessWidget {
           .add(const LoadDataInEveryOneIsWatching());
     });
     return RefreshIndicator(
-      onRefresh: ()async{
+      onRefresh: () async {
         BlocProvider.of<HotAndNewBloc>(context)
-          .add(const LoadDataInEveryOneIsWatching());
+            .add(const LoadDataInEveryOneIsWatching());
       },
       child: BlocBuilder<HotAndNewBloc, HotAndNewState>(
         builder: (context, state) {
@@ -207,7 +183,7 @@ class EveryoneWatchingList extends StatelessWidget {
                 if (tv.id == null) {
                   return const SizedBox();
                 }
-    
+
                 return EveryonesWatchingWidget(
                     posterPath: '$imageAppentUrl${tv.posterPath}',
                     movieName: tv.originalName ?? "No Name",
